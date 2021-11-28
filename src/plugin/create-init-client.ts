@@ -1,10 +1,8 @@
-import _Vue from 'vue'
 import '@splitsoftware/splitio'
 import type { VueSplitIOOptions, ClientMap } from './types'
 
 export const createInitClient =
   (
-    Vue: typeof _Vue,
     factory: SplitIO.ISDK,
     clientMap: ClientMap,
     getCustomKey?: VueSplitIOOptions['getCustomKey'],
@@ -29,8 +27,6 @@ export const createInitClient =
         clientMap?.get?.(selectedKey)?.destroy()
       })
     }
-
-    Vue.prototype.$splitIO.client = clientMap.get(selectedKey)
 
     // @ts-expect-error We know it exists because we set it up above
     return clientMap.get(selectedKey)

@@ -14,7 +14,6 @@ export const VueSplitIOPlugin = {
     Vue.prototype.$splitIO.clientMap = clientMap
 
     const initClient = createInitClient(
-      Vue,
       factory,
       clientMap,
       getCustomKey,

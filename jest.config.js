@@ -9,6 +9,7 @@ module.exports = {
     '!src/**/*.d.ts',
   ],
   modulePathIgnorePatterns: ['<rootDir>/dist', '<rootDir>/e2e'],
+  setupFiles: ['<rootDir>/test/setup-jest.js'],
   coverageThreshold: {
     global: {
       branches: 100,
