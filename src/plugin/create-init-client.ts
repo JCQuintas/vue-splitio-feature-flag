@@ -1,7 +1,6 @@
 import _Vue from 'vue'
 import '@splitsoftware/splitio'
-import type { VueSplitIOOptions } from './options'
-import type { ClientMap } from './client-map'
+import type { VueSplitIOOptions, ClientMap } from './types'
 
 export const createInitClient =
   (
