@@ -10,8 +10,6 @@ export const VueSplitIOPlugin = {
     const factory = SplitFactory({ ...splitio })
 
     const clientMap: ClientMap = new Map()
-    Vue.prototype.$splitIO = {}
-    Vue.prototype.$splitIO.clientMap = clientMap
 
     const initClient = createInitClient(
       factory,
@@ -22,7 +20,9 @@ export const VueSplitIOPlugin = {
 
     initImmediate && initClient()
 
+    Vue.prototype.$splitIO = {}
+    Vue.prototype.$splitIO.clientMap = clientMap
     Vue.prototype.$splitIO.factory = factory
-    Vue.prototype.$splitIO.initClient = initClient
+    Vue.prototype.$splitIO.client = initClient
   },
 }

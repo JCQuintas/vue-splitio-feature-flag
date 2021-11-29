@@ -6,11 +6,7 @@ declare module 'vue/types/vue' {
   interface Vue {
     $splitIO: {
       clientMap: ClientMap
-      client: SplitIO.IClient
-      initClient: (
-        key?: SplitIO.SplitKey,
-        trafficType?: string,
-      ) => SplitIO.IClient
+      client: (key?: SplitIO.SplitKey, trafficType?: string) => SplitIO.IClient
       factory: SplitIO.ISDK
     }
   }
