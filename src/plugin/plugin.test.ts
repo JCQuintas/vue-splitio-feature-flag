@@ -46,6 +46,12 @@ it('should call createInitClient once when installing', () => {
   )
 })
 
+it('should call initClient when initImmediate = undefined', () => {
+  install()
+
+  expect(mockedInitClient).toHaveBeenCalled()
+})
+
 it('should call initClient when initImmediate = true', () => {
   install({ initImmediate: true })
 

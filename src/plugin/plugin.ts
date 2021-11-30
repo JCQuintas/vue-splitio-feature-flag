@@ -18,7 +18,8 @@ export const VueSplitIOPlugin = {
       getTrafficType,
     )
 
-    initImmediate && initClient()
+    const shouldInit = initImmediate ?? true
+    shouldInit && initClient()
 
     Vue.prototype.$splitIO = {}
     Vue.prototype.$splitIO.clientMap = clientMap
