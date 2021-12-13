@@ -34,5 +34,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,yaml,yml,css,md}": "prettier --write"
-  }
+  },
+  "files": [
+    "dist/"
+  ]
 }
