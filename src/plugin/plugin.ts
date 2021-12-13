@@ -1,10 +1,10 @@
 import { SplitFactory } from '@splitsoftware/splitio'
-import _Vue from 'vue'
+import type _Vue from 'vue'
 import { createInitClient } from './create-init-client'
 import type { VueSplitIOOptions, ClientMap } from './types'
 
 export const VueSplitIOPlugin = {
-  install(Vue: typeof _Vue, options: VueSplitIOOptions) {
+  install(Vue: typeof _Vue, options: VueSplitIOOptions): void {
     const { getCustomKey, getTrafficType, initImmediate, ...splitio } = options
 
     const factory = SplitFactory({ ...splitio })

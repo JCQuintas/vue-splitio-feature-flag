@@ -1,6 +1,9 @@
-import { Input } from './types'
+import type { Input } from './types'
 
-export const shouldShowElement = (client: SplitIO.IClient, input: Input) => {
+export const shouldShowElement = (
+  client: SplitIO.IClient,
+  input: Input,
+): boolean => {
   const result = Object.values(
     client.getTreatments(input.features, input.attributes) || {},
   )

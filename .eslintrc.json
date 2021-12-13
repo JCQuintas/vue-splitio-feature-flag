@@ -19,6 +19,12 @@
     "jest": true,
     "node": true
   },
+  "rules": {
+    "@typescript-eslint/consistent-type-exports": ["error"],
+    "@typescript-eslint/consistent-type-imports": ["error"],
+    "@typescript-eslint/no-dynamic-delete": ["error"],
+    "@typescript-eslint/explicit-module-boundary-types": ["error"]
+  },
   "overrides": [
     {
       "files": ["src/**/*.test.ts"],

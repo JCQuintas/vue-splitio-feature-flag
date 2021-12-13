@@ -1,6 +1,6 @@
 import '@splitsoftware/splitio'
 import 'vue'
-import { ClientMap } from './plugin'
+import type { ClientMap } from './plugin'
 
 declare module 'vue/types/vue' {
   interface Vue {

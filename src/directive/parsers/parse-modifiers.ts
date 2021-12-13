@@ -1,4 +1,4 @@
-import { DirectiveBinding } from 'vue/types/options'
+import type { DirectiveBinding } from 'vue/types/options'
 
 export const parseModifiers = (
   modifiers: DirectiveBinding['modifiers'],

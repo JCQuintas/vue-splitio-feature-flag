@@ -15,7 +15,7 @@ export const handleFlagChange = (
   element: HTMLElement,
   shouldDisable?: boolean,
   shouldShow?: boolean,
-) => {
+): void => {
   if (shouldDisable) {
     if (hasDisabledProperty(element)) element.disabled = !shouldShow
   } else {

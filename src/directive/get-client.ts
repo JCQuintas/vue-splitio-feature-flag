@@ -1,8 +1,11 @@
-import { VNode } from 'vue'
+import type { VNode } from 'vue'
 import { VueSplitIOError } from '../utilities/vue-splitio-error'
-import { Input } from './types'
+import type { Input } from './types'
 
-export const getClient = async (vnode: VNode, key: Input['key']) => {
+export const getClient = async (
+  vnode: VNode,
+  key: Input['key'],
+): Promise<SplitIO.IClient> => {
   const client = vnode.context?.$splitIO.client(key)
 
   if (!client)

@@ -1,6 +1,6 @@
 import { createInitClient } from './create-init-client'
 import { SplitFactory } from '@splitsoftware/splitio'
-import { ClientMap } from '.'
+import type { ClientMap } from './types'
 
 const createFactory = () =>
   SplitFactory({

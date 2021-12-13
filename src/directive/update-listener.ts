@@ -1,11 +1,11 @@
-import { VNode } from 'vue'
+import type { VNode } from 'vue'
 
 export const updateListener = (
   vnode: VNode,
   client: SplitIO.IClient,
   remove?: boolean,
-) => {
-  if (!vnode.context) return null
+): void => {
+  if (!vnode.context) return
 
   if (!remove) {
     client.addListener(

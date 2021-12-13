@@ -1,6 +1,6 @@
-import { DirectiveBinding } from 'vue/types/options'
+import type { DirectiveBinding } from 'vue/types/options'
 import { VueSplitIOError } from '../../utilities/vue-splitio-error'
-import { Input } from '../types'
+import type { Input } from '../types'
 
 type Feature = string | string[]
 type DirectiveValue = Partial<Pick<Input, 'key' | 'features' | 'attributes'>>
@@ -11,7 +11,9 @@ const isObject = (value: unknown): value is DirectiveValue =>
 const isValidArray = (value: unknown): value is string[] =>
   Array.isArray(value) && value.every((v) => typeof v === 'string')
 
-export const parseValue = (value: DirectiveBinding['value']) => {
+export const parseValue = (
+  value: DirectiveBinding['value'],
+): Pick<Input, 'features' | 'key' | 'attributes'> => {
   const isDirectiveShape = isObject(value)
 
   const featureNames = isDirectiveShape ? value.features : (value as Feature)
