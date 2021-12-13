@@ -1,5 +1,6 @@
 import { DirectiveBinding } from 'vue/types/options'
-import { Input } from './types'
+import { VueSplitIOError } from '../../utilities/vue-splitio-error'
+import { Input } from '../types'
 
 type Feature = string | string[]
 type DirectiveValue = Partial<Pick<Input, 'key' | 'features' | 'attributes'>>
@@ -20,7 +21,9 @@ export const parseValue = (value: DirectiveBinding['value']) => {
   const features = Array.isArray(featureNames) ? featureNames : [featureNames]
 
   if (!isValidArray(features))
-    throw new Error('At least one feature name must be present on input')
+    throw new VueSplitIOError(
+      'At least one feature name must be present on input',
+    )
 
   return {
     features,

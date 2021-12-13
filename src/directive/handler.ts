@@ -1,43 +1,25 @@
 import { checkErrors } from './check-errors'
 import { handleFlagChange } from './handle-flag-change'
 import type { DirectiveOptions } from 'vue'
-import { parseAllInput } from './parse-all-input'
+import { parseAllInput } from './parsers/parse-all-input'
 import { shouldShowElement } from './should-show-element'
-import { createListener } from './create-listener'
 import { isSameArray } from '../utilities/is-same-array'
-import { removeListener } from './remove-listener'
 import { getClient } from './get-client'
+import { parseValue } from './parsers/parse-value'
+import { updateListener } from './update-listener'
 
-// v-if-feature.isOn.orIsOff.thenHide.andWatchForChanges
-export const createDirectiveHandler = (
-  treatments: string[],
-): DirectiveOptions => ({
-  bind: async (element, { modifiers, value, name }, vnode) => {
+const bindAndUpdate =
+  (treatments: string[]): DirectiveOptions['bind'] =>
+  async (element, { modifiers, value, name, oldValue }, vnode) => {
     const input = parseAllInput(treatments, modifiers, value)
-
-    checkErrors(input.shouldDisable, input.shouldHide, name)
-
-    handleFlagChange(element, input.shouldDisable)
-
+    const oldInput = parseValue(oldValue)
     const client = await getClient(vnode, input.key)
-
-    const shouldShow = await shouldShowElement(client, input)
-
-    handleFlagChange(element, input.shouldDisable, shouldShow)
-
-    input.shouldWatch && createListener(vnode, client)
-  },
-  update: async (element, { modifiers, value, name, oldValue }, vnode) => {
-    const input = parseAllInput(treatments, modifiers, value)
-    const oldInput = parseAllInput(treatments, modifiers, oldValue)
 
     checkErrors(input.shouldDisable, input.shouldHide, name)
 
     if (isSameArray(oldInput.features, input.features)) return null
 
-    const client = await getClient(vnode, input.key)
-
-    input.shouldWatch && removeListener(vnode, client)
+    if (input.shouldWatch) updateListener(vnode, client, true)
 
     handleFlagChange(element, input.shouldDisable)
 
@@ -45,13 +27,19 @@ export const createDirectiveHandler = (
 
     handleFlagChange(element, input.shouldDisable, shouldShow)
 
-    input.shouldWatch && createListener(vnode, client)
-  },
+    if (input.shouldWatch) updateListener(vnode, client)
+  }
+
+export const createDirectiveHandler = (
+  treatments: string[],
+): DirectiveOptions => ({
+  bind: bindAndUpdate(treatments),
+  update: bindAndUpdate(treatments),
   unbind: async (_, { modifiers, value }, vnode) => {
     const input = parseAllInput(treatments, modifiers, value)
 
     const client = await getClient(vnode, input.key)
 
-    input.shouldWatch && removeListener(vnode, client)
+    input.shouldWatch && updateListener(vnode, client, true)
   },
 })
