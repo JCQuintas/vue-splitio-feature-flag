@@ -67,8 +67,12 @@ it('should not call initClient when initImmediate = false', () => {
 it('should initialize all variables in vue prototype', () => {
   install()
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   expect(Vue.prototype.$splitIO).toBeDefined()
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   expect(Vue.prototype.$splitIO.clientMap).toBeDefined()
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   expect(Vue.prototype.$splitIO.factory).toBeDefined()
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   expect(Vue.prototype.$splitIO.client).toBeDefined()
 })

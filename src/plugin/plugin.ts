@@ -21,9 +21,13 @@ export const VueSplitIOPlugin = {
     const shouldInit = initImmediate ?? true
     shouldInit && initClient()
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     Vue.prototype.$splitIO = {}
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     Vue.prototype.$splitIO.clientMap = clientMap
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     Vue.prototype.$splitIO.factory = factory
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     Vue.prototype.$splitIO.client = initClient
   },
 }

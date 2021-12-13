@@ -24,7 +24,7 @@ export const createInitClient =
       )
 
       window.addEventListener('beforeunload', () => {
-        clientMap?.get?.(selectedKey)?.destroy()
+        void clientMap?.get?.(selectedKey)?.destroy()
       })
     }
 

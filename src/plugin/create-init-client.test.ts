@@ -1,5 +1,6 @@
 import { createInitClient } from './create-init-client'
 import { SplitFactory } from '@splitsoftware/splitio'
+import { ClientMap } from '.'
 
 const createFactory = () =>
   SplitFactory({
@@ -7,7 +8,7 @@ const createFactory = () =>
       authorizationKey: 'localhost',
     },
   })
-const clientMap = new Map()
+const clientMap: ClientMap = new Map()
 
 beforeEach(() => {
   clientMap.clear()
