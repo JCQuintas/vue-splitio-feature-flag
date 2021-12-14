@@ -1,5 +1,5 @@
 import '@splitsoftware/splitio'
-import type { ClientMap } from './types'
+import type { ClientMap } from 'common/client-map'
 import type { SplitIOOptions } from 'common/splitio-options'
 
 export const createInitClient =

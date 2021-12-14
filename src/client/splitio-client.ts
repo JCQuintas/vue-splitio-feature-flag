@@ -1,7 +1,7 @@
 import { SplitFactory } from '@splitsoftware/splitio'
 import type _Vue from 'vue'
 import { createInitClient } from './create-init-client'
-import type { ClientMap } from './types'
+import type { ClientMap } from 'common/client-map'
 import type { SplitIOOptions } from 'common/splitio-options'
 
 export const SplitIOClient = {
