@@ -1,6 +1,6 @@
 import type { SplitIOOptions } from 'common/splitio-options'
 import type _Vue from 'vue'
-import { createDirectiveHandler } from './handler'
+import { createDirectiveHandler } from './create-directive-handler'
 
 export const SplitIODirectives = {
   install(Vue: typeof _Vue, options?: SplitIOOptions): void {

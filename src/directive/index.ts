@@ -1,1 +1,1 @@
-export const a = {}
+export { SplitIODirectives } from './splitio-directives'
