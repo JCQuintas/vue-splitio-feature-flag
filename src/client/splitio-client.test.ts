@@ -1,8 +1,8 @@
-import { VueSplitIOPlugin } from './plugin'
+import { SplitIOClient } from './splitio-client'
 import Vue from 'vue'
 import { SplitFactory } from '@splitsoftware/splitio'
 import { createInitClient } from './create-init-client'
-import type { VueSplitIOOptions } from './types'
+import type { SplitIOClientOptions } from './types'
 
 jest.mock('./create-init-client')
 
@@ -13,8 +13,8 @@ const mockedCreateInitClient = (createInitClient as jest.Mock).mockReturnValue(
   mockedInitClient,
 )
 
-const install = (options?: Partial<VueSplitIOOptions>) =>
-  VueSplitIOPlugin.install(Vue, {
+const install = (options?: Partial<SplitIOClientOptions>) =>
+  SplitIOClient.install(Vue, {
     core: { authorizationKey: 'localhost', key: 'test' },
     getCustomKey: mockedGetKey,
     getTrafficType: mockedGetTrafficType,

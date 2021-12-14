@@ -1,2 +1,2 @@
-export { VueSplitIOPlugin } from './plugin'
-export type { VueSplitIOOptions } from './plugin'
+export { SplitIOClient } from './client'
+export type { SplitIOClientOptions } from './client'
