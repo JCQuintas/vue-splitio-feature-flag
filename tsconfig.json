@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
@@ -9,6 +9,12 @@
     "strict": true,
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "client/*": ["client/*"],
+      "utilities/*": ["utilities/*"],
+      "directive/*": ["directive/*"],
+      "common/*": ["common/*"]
+    }
   }
 }

@@ -3,15 +3,16 @@ import { handleFlagChange } from './handle-flag-change'
 import type { DirectiveOptions } from 'vue'
 import { parseAll } from './parsers/parse-all'
 import { shouldShowElement } from './should-show-element'
-import { isSameArray } from '../utilities/is-same-array'
+import { isSameArray } from 'utilities/is-same-array'
 import { getClient } from './get-client'
 import { parseValue } from './parsers/parse-value'
 import { updateListener } from './update-listener'
+import type { SplitIOOptions } from 'common/splitio-options'
 
 const bindAndUpdate =
-  (treatments: string[]): DirectiveOptions['bind'] =>
+  (options?: SplitIOOptions): DirectiveOptions['bind'] =>
   async (element, { modifiers, value, name, oldValue }, vnode) => {
-    const input = parseAll(treatments, modifiers, value)
+    const input = parseAll(modifiers, value, options?.treatments)
     const oldInput = parseValue(oldValue)
     const client = await getClient(vnode, input.key)
 
@@ -31,12 +32,12 @@ const bindAndUpdate =
   }
 
 export const createDirectiveHandler = (
-  treatments: string[],
+  options?: SplitIOOptions,
 ): DirectiveOptions => ({
-  bind: bindAndUpdate(treatments),
-  update: bindAndUpdate(treatments),
+  bind: bindAndUpdate(options),
+  update: bindAndUpdate(options),
   unbind: async (_, { modifiers, value }, vnode) => {
-    const input = parseAll(treatments, modifiers, value)
+    const input = parseAll(modifiers, value, options?.treatments)
 
     const client = await getClient(vnode, input.key)
 

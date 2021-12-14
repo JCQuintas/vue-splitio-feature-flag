@@ -1,12 +1,13 @@
 import '@splitsoftware/splitio'
-import type { SplitIOClientOptions, ClientMap } from './types'
+import type { ClientMap } from './types'
+import type { SplitIOOptions } from 'common/splitio-options'
 
 export const createInitClient =
   (
     factory: SplitIO.ISDK,
     clientMap: ClientMap,
-    getCustomKey?: SplitIOClientOptions['getCustomKey'],
-    getTrafficType?: SplitIOClientOptions['getTrafficType'],
+    getCustomKey?: SplitIOOptions['getCustomKey'],
+    getTrafficType?: SplitIOOptions['getTrafficType'],
   ) =>
   (key?: SplitIO.SplitKey, trafficType?: string): SplitIO.IClient => {
     const selectedKey = key || getCustomKey?.()

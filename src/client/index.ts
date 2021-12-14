@@ -1,2 +1,2 @@
 export { SplitIOClient } from './splitio-client'
-export type { SplitIOClientOptions, ClientMap } from './types'
+export type { ClientMap } from './types'

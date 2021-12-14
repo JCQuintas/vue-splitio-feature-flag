@@ -1,7 +1,7 @@
 import type { DirectiveBinding } from 'vue/types/options'
 import { parseModifiers } from './parse-modifiers'
 import { parseValue } from './parse-value'
-import type { Input } from '../types'
+import type { Input } from 'directive/types'
 import { parseTreatments } from './parse-treatments'
 
 const disable = 'disable'
@@ -15,9 +15,9 @@ const positivePrefixes = ['or', 'orIs', 'orAre', 'is', 'are']
 const defaultTreatments = ['on', 'off', 'control']
 
 export const parseAll = (
-  treatments: string[],
   modifiers: DirectiveBinding['modifiers'],
   value: DirectiveBinding['value'],
+  treatments?: string[],
 ): Input => {
   const shouldDisable = parseModifiers(modifiers, disable, then)
   const shouldHide = parseModifiers(modifiers, hide, then)
@@ -26,8 +26,8 @@ export const parseAll = (
   const expectedTreatments = parseTreatments(
     defaultTreatments,
     positivePrefixes,
-    treatments,
     modifiers,
+    treatments,
   )
 
   return {
