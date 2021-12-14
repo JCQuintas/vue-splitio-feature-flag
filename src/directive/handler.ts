@@ -1,7 +1,7 @@
 import { checkErrors } from './check-errors'
 import { handleFlagChange } from './handle-flag-change'
 import type { DirectiveOptions } from 'vue'
-import { parseAllInput } from './parsers/parse-all-input'
+import { parseAll } from './parsers/parse-all'
 import { shouldShowElement } from './should-show-element'
 import { isSameArray } from '../utilities/is-same-array'
 import { getClient } from './get-client'
@@ -11,7 +11,7 @@ import { updateListener } from './update-listener'
 const bindAndUpdate =
   (treatments: string[]): DirectiveOptions['bind'] =>
   async (element, { modifiers, value, name, oldValue }, vnode) => {
-    const input = parseAllInput(treatments, modifiers, value)
+    const input = parseAll(treatments, modifiers, value)
     const oldInput = parseValue(oldValue)
     const client = await getClient(vnode, input.key)
 
@@ -36,7 +36,7 @@ export const createDirectiveHandler = (
   bind: bindAndUpdate(treatments),
   update: bindAndUpdate(treatments),
   unbind: async (_, { modifiers, value }, vnode) => {
-    const input = parseAllInput(treatments, modifiers, value)
+    const input = parseAll(treatments, modifiers, value)
 
     const client = await getClient(vnode, input.key)
 

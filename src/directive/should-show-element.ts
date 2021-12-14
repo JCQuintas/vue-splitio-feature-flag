@@ -10,9 +10,7 @@ export const shouldShowElement = (
 
   const shouldShow =
     result.length >= 1 &&
-    result.every((treatment) =>
-      input.expectedCustomTreatments.includes(treatment),
-    )
+    result.every((treatment) => input.expectedTreatments.includes(treatment))
 
   return shouldShow
 }
