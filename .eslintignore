@@ -1,2 +1,3 @@
-scripts/
-jest.config.js
+*
+!src/
+!e2e/
