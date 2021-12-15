@@ -1,7 +1,7 @@
 import type { DirectiveBinding } from 'vue/types/options'
 import { parseModifiers } from './parse-modifiers'
 import { parseValue } from './parse-value'
-import type { Input } from 'directive/types'
+import type { Input } from '../input'
 import { parseTreatments } from './parse-treatments'
 
 const disable = 'disable'

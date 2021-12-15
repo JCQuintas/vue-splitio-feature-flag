@@ -1,6 +1,6 @@
 import type { DirectiveBinding } from 'vue/types/options'
-import { VueSplitIOError } from 'utilities/vue-splitio-error'
-import type { Input } from 'directive/types'
+import { VueSplitIOError } from '../../utilities/vue-splitio-error'
+import type { Input } from '../input'
 
 type Feature = string | string[]
 type DirectiveValue = Partial<Pick<Input, 'key' | 'features' | 'attributes'>>

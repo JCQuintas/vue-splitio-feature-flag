@@ -3,11 +3,11 @@ import { handleFlagChange } from './handle-flag-change'
 import type { DirectiveOptions } from 'vue'
 import { parseAll } from './parsers/parse-all'
 import { shouldShowElement } from './should-show-element'
-import { isSameArray } from 'utilities/is-same-array'
+import { isSameArray } from '../utilities/is-same-array'
 import { getClient } from './get-client'
 import { parseValue } from './parsers/parse-value'
 import { updateListener } from './update-listener'
-import type { SplitIOOptions } from 'common/splitio-options'
+import type { SplitIOOptions } from '../common/splitio-options'
 
 const bindAndUpdate =
   (options?: SplitIOOptions): DirectiveOptions['bind'] =>

@@ -2,7 +2,7 @@ import { SplitIOClient } from './splitio-client'
 import Vue from 'vue'
 import { SplitFactory } from '@splitsoftware/splitio'
 import { createInitClient } from './create-init-client'
-import type { SplitIOOptions } from 'common/splitio-options'
+import type { SplitIOOptions } from '../common/splitio-options'
 
 jest.mock('./create-init-client')
 

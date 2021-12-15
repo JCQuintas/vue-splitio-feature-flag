@@ -1,8 +1,4 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
-
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
-const { compilerOptions } = require('./tsconfig')
-
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
@@ -11,7 +7,6 @@ module.exports = {
     '!src/**/index.{ts,tsx}',
     '!src/**/*.d.ts',
   ],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
   modulePathIgnorePatterns: ['<rootDir>/dist', '<rootDir>/e2e'],
   setupFiles: ['<rootDir>/scripts/setup-jest.js'],
   coverageThreshold: {

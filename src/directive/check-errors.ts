@@ -1,4 +1,4 @@
-import { VueSplitIOError } from 'utilities/vue-splitio-error'
+import { VueSplitIOError } from '../utilities/vue-splitio-error'
 
 export const checkErrors = (
   shouldDisable: boolean,

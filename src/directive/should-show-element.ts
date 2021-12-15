@@ -1,4 +1,4 @@
-import type { Input } from './types'
+import type { Input } from './input'
 
 export const shouldShowElement = (
   client: SplitIO.IClient,

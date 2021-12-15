@@ -1,6 +1,6 @@
 import type { VNode } from 'vue'
-import { VueSplitIOError } from 'utilities/vue-splitio-error'
-import type { Input } from './types'
+import { VueSplitIOError } from '../utilities/vue-splitio-error'
+import type { Input } from './input'
 
 export const getClient = async (
   vnode: VNode,

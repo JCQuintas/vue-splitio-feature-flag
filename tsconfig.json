@@ -12,13 +12,7 @@
     "declaration": true,
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
-    "paths": {
-      "client/*": ["client/*"],
-      "utilities/*": ["utilities/*"],
-      "directive/*": ["directive/*"],
-      "common/*": ["common/*"]
-    }
+    "isolatedModules": true
   },
   "include": ["src/**/*"]
 }
