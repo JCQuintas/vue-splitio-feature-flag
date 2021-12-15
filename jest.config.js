@@ -13,7 +13,7 @@ module.exports = {
   ],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
   modulePathIgnorePatterns: ['<rootDir>/dist', '<rootDir>/e2e'],
-  setupFiles: ['<rootDir>/test/setup-jest.js'],
+  setupFiles: ['<rootDir>/scripts/setup-jest.js'],
   coverageThreshold: {
     global: {
       branches: 100,
